@@ -1,0 +1,55 @@
+1.What’s the difference between path.join() and path.resolve()?
+| Feature                | `path.join()`                     | `path.resolve()`                                        |
+| ---------------------- | --------------------------------- | ------------------------------------------------------- |
+| Returns                | Normalized path (may be relative) | Always absolute path                                    |
+| Base directory         | Just joins parts                  | Starts from current working directory (`process.cwd()`) |
+| Stops at absolute path | Yes (keeps that segment only)     | Yes (resolves from there)                               |
+| Use case               | Combine parts safely              | Get full absolute path                                  |
+
+
+2. What’s the difference between synchronous and asynchronous fs methods?
+	
+(I). Synchronous fs methods
+
+Block the code execution until the file operation is completed.
+
+The program waits for the task to finish before moving to the next line.
+
+Denoted by the “Sync” suffix in method names.
+(II). Asynchronous fs methods
+
+Do not block the code execution.
+
+Other code runs while the file operation is in progress.
+
+Use callbacks, promises, or async/await to handle results.
+
+(III).difference between synchronous and asynchronous.
+| Feature     | Synchronous (`Sync`)                    | Asynchronous                 |
+| ----------- | --------------------------------------- | ---------------------------- |
+| Execution   | Blocks code                             | Non-blocking                 |
+| Performance | Slower (for large files)                | Faster & efficient           |
+| Naming      | Ends with “Sync” (e.g., `readFileSync`) | No “Sync” (e.g., `readFile`) |
+| Use Case    | Small scripts, one-time tasks           | Servers, I/O-heavy apps      |
+
+
+3.Why is nodemon used in backend development?
+| Benefit                      | Description                                           |
+| ---------------------------- | ----------------------------------------------------- |
+|	Auto restart           | Automatically restarts your server when files change. |
+| 	Saves time             | No need to stop/start Node manually after every edit. |
+| 	Easy setup             | Simple to install and use (`npm install -g nodemon`). |
+| 	Great for development  | Keeps your development process smooth and fast.       |
+
+4.What are the advantages of using process module?
+
+|  Feature                                                  Description                                                                             
+| ----------------------------------------- | ------------------------------------------------------------------------------------------ |                                                                          | 
+|  Access environment variables       | You can use `process.env` to access environment variables (like DB passwords, ports, etc.) |                          
+|  Handle command-line arguments      | Get user inputs passed in terminal                                                         |                           
+|  Control program exit               | Gracefully stop the process using `process.exit()`                                         |                                          
+|  Monitor performance                | Check memory usage or CPU time                                                             |                       
+|  Handle events and errors           | Listen for `uncaughtException` or exit events to handle errors cleanly                     |          
+|  Know the current working directory | Helps to build correct file paths                                                          |                            
+|  Manage signals (like CTRL+C)       | Handle OS-level signals safely                                                             | 
+
